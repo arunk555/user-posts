@@ -1,4 +1,4 @@
-const { NODE_ENV } = require('../config')
+const { NODE_ENV } = require('../config');
 const errorhandler = function (error, req, res, next) {
   const { statusCode, name, message, stack } = error;
   const code = statusCode || 500;
@@ -8,7 +8,7 @@ const errorhandler = function (error, req, res, next) {
   res.status(code).json({
     success: false,
     message: errname + ' ' + msg,
-    stack: (NODE_ENV === 'development') ? stack : {}
+    stack: NODE_ENV === 'development' ? stack : {}
   });
 };
 
