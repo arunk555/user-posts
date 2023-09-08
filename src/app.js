@@ -1,6 +1,7 @@
 const express = require('express');
 const router = require('./routes');
 const errorhandler = require('./middlewares/errorhandler');
+const morganlogger = require('./middlewares/morgan');
 const app = express();
 
 app.use(express.json());
@@ -9,6 +10,8 @@ app.use(
         extended: false
     })
 );
+
+app.use(morganlogger);
 
 app.use(router);
 
