@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 app.get('/health', (_, res) => {
     res.status(200).json({
         success: true,
-        message: 'site is runvvning test and up!'
+        message: 'site is runvv ning test and up!'
     });
 });
 
