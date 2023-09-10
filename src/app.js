@@ -22,6 +22,13 @@ app.get('/', (req, res) => {
     });
 });
 
+app.get('/health', (_, res)=>{
+  res.status(200).json({
+    success: true,
+    message: 'site is running and up!'
+  })
+});
+
 app.all('*', (_, res) => {
     res.status(404).json({
         success: false,
