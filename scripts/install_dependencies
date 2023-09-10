@@ -1,1 +1,27 @@
 #!/bin/bash
+#download node and npm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+nvm install node
+
+#create our working directory if doesnot exist
+DIR="/ak/app/user-posts"
+if [ -d "$DIR" ]; then
+	echo "${DIR} exists" 
+else	
+  echo "Creating ${DIR} directory" 
+  mkdir ${DIR}
+fi  
+
+curl -o- -L https://yarnpkg.com/install.sh | bash
+
+if [[ -z "${NODE_ENV}" ]]; then
+  NODE_ENV="development"
+  PORT=3000
+else
+  NODE_ENV="${NODE_ENV}"
+  PORT=3000
+fi
+
+cd DIR
+yarn install
+yarn global add pm2
